@@ -1,0 +1,116 @@
+{
+  "photos": {
+    "assets/park/wharf.jpg": {
+      "source": "DJI_20261017154810_0016_D.JPG",
+      "article": "park-wharf"
+    },
+    "assets/park/shore.jpg": {
+      "source": "DJI_20261017155304_0027_D.JPG",
+      "article": "park-wharf"
+    },
+    "assets/park/excavation.jpg": {
+      "source": "DJI_20261017155041_0023_D.JPG",
+      "article": "park-excavation"
+    },
+    "assets/park/landscape.jpg": {
+      "source": "DJI_20261017155327_0028_D.JPG",
+      "article": "park-rice",
+      "role": "当代环境参照"
+    },
+    "assets/park/overview.jpg": {
+      "source": "DJI_20261017153735_0007_D.JPG",
+      "article": "park-houses",
+      "role": "现代博物馆建筑"
+    },
+    "assets/park/excavation-video.jpg": {
+      "source": "202610172035.mp4",
+      "time": 4,
+      "article": "park-excavation",
+      "role": "视频截图"
+    },
+    "assets/park/wharf-video.jpg": {
+      "source": "202610172035(1).mp4",
+      "time": 3,
+      "article": "park-wharf",
+      "role": "视频截图"
+    },
+    "assets/park/museum-video.jpg": {
+      "source": "202610172035(2).mp4",
+      "time": 12,
+      "article": "park-houses",
+      "role": "视频截图"
+    }
+  },
+  "film": [
+    {
+      "id": "gate",
+      "file": "DJI_20261017150820_0002_D(1).MP4",
+      "start": 8.5,
+      "label": "河姆渡",
+      "line": "在水与土地之间",
+      "duration": 6,
+      "timeline_in": 0.0,
+      "timeline_out": 6.0
+    },
+    {
+      "id": "valley",
+      "file": "DJI_20261017153855_0009_D.MP4",
+      "start": 6,
+      "label": "姚江谷地",
+      "line": "河流、林地与聚落",
+      "duration": 6,
+      "timeline_in": 5.6,
+      "timeline_out": 11.6
+    },
+    {
+      "id": "wharf",
+      "file": "202610172035(1).mp4",
+      "start": 1.5,
+      "label": "水岸与舟楫",
+      "line": "从码头，走进现场",
+      "duration": 6,
+      "timeline_in": 11.2,
+      "timeline_out": 17.2
+    },
+    {
+      "id": "excavation",
+      "file": "202610172035.mp4",
+      "start": 2,
+      "label": "发掘现场展示",
+      "line": "从木桩，寻找生活的线索",
+      "duration": 6,
+      "timeline_in": 16.8,
+      "timeline_out": 22.8
+    },
+    {
+      "id": "wetland",
+      "file": "DJI_20261017151057_0004_D(1).MP4",
+      "start": 7,
+      "label": "稻作与土地",
+      "line": "水网与田园，延续着生活",
+      "duration": 6,
+      "timeline_in": 22.4,
+      "timeline_out": 28.4
+    },
+    {
+      "id": "architecture",
+      "file": "202610172035(2).mp4",
+      "start": 10,
+      "label": "建筑与居所",
+      "line": "木构传统的当代回声",
+      "duration": 6,
+      "timeline_in": 28.0,
+      "timeline_out": 34.0
+    },
+    {
+      "id": "shore",
+      "file": "DJI_20261017155235_0025_D.MP4",
+      "start": 3,
+      "label": "走进河姆渡",
+      "line": "让故事，有迹可循",
+      "duration": 6,
+      "timeline_in": 33.6,
+      "timeline_out": 39.6
+    }
+  ]
+}
