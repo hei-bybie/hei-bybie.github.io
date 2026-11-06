@@ -52,3 +52,32 @@
 
 /* The atlas index stays legible while the lower row travels toward the edge. */
 .atlas-arrival .atlas-controls.reading-reveal,.atlas-arrival .atlas-hint.reading-reveal{opacity:1;transform:none}
+
+/* Mobile reading uses natural page flow, avoiding oversized sticky panels. */
+.atlas-flow{display:none}
+@media screen{
+  #prehistoric-atlas.atlas-mobile{height:auto;overflow-anchor:none}
+  #prehistoric-atlas.atlas-mobile .atlas-sticky{position:static;min-height:0;display:flex;flex-direction:column;align-items:stretch;gap:14px}
+  .atlas-mobile .atlas-head{order:0}
+  .atlas-mobile .atlas-controls{order:1}
+  .atlas-mobile .atlas-grid{order:2;display:block}
+  .atlas-mobile .atlas-hint{order:3}
+  .atlas-mobile .atlas-info{display:none}
+  .atlas-mobile .atlas-flow{display:block}
+  .atlas-mobile .atlas-canvas{position:sticky;top:var(--atlas-nav);z-index:2;transform-origin:top center;box-shadow:0 6px 12px #eff0e580}
+  .atlas-mobile .atlas-canvas svg{height:var(--atlas-map-height);max-height:none;width:100%}
+  .atlas-flow-entry{padding:30px 0 42px;border-bottom:1px solid #cbd3c3;outline:none}
+  .atlas-flow-entry .atlas-age{color:#94643b;font-size:20px}
+  .atlas-flow-entry .atlas-name{font-size:calc(var(--story-body) + 5px);line-height:1.5;margin:7px 0}
+  .atlas-flow-entry .atlas-note{margin:14px 0 0;white-space:normal}
+  .atlas-mobile .atlas-head,.atlas-mobile .atlas-controls,.atlas-mobile .atlas-hint{translate:none}
+}
+@media print{.atlas-info{display:none}.atlas-flow{display:block}.atlas-flow .atlas-note{opacity:1!important}.atlas-flow-entry{break-inside:avoid}}
+@media screen{
+  body.atlas-mobile-view .atlas-hero{height:calc(var(--atlas-stable-height) - var(--nav-height));min-height:0}
+}
+@media screen{
+  .atlas-mobile .atlas-canvas{scale:1;background:#eff0e5;border:0;border-radius:0;box-shadow:none;overflow:hidden}
+  .atlas-mobile .atlas-canvas svg{scale:var(--map-scale,1);transform-origin:top center;background:#e3ece3;border:1px solid #cbd3c3;border-radius:10px;box-sizing:border-box}
+}
+@media(prefers-reduced-motion:reduce){.atlas-mobile .atlas-canvas svg{scale:1}}

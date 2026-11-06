@@ -11,7 +11,36 @@
   const smooth = window.HemuduMotion.smooth;
   const last = stops.length - 1;
   const length = last + 4;
-  const clamp = value => Math.min(1, Math.max(0, value));
+  const compact = matchMedia('(max-width:720px), (max-height:540px), (pointer:coarse) and (max-width:1100px)');
+  let stableWidth = innerWidth;
+  let stableHeight = innerHeight;
+  const flow = document.createElement('div');
+  flow.className = 'atlas-flow';
+  const flowEntries = stops.map((stop, i) => {
+    const article = document.createElement('article');
+    article.id = 'atlas-stop-' + i;
+    article.className = 'atlas-flow-entry';
+    article.tabIndex = -1;
+    const age = document.createElement('p');
+    age.className = 'atlas-age';
+    age.textContent = stop.age;
+    const name = document.createElement('h3');
+    name.className = 'atlas-name';
+    name.textContent = stop.name;
+    const place = document.createElement('p');
+    place.className = 'atlas-place';
+    place.textContent = stop.location + ' · ' + stop.landmark;
+    article.append(age, name, place);
+    stop.note.split(/\n\s*\n/).forEach(text => {
+      const paragraph = document.createElement('p');
+      paragraph.className = 'atlas-note';
+      paragraph.textContent = text;
+      article.append(paragraph);
+    });
+    flow.append(article);
+    return article;
+  });
+  info.after(flow);
 
   // Both texts share one column. Their measured heights let the layout open
   // gradually even when the final entry wraps into many lines on a phone.
@@ -68,8 +97,42 @@
     return {nav, top:rect.top, distance:Math.max(1, rect.height - innerHeight + nav)};
   }
 
+  function renderFlow() {
+    const nav = topbar.getBoundingClientRect().height;
+    const canvas = map.querySelector('.atlas-canvas');
+    // Only a width/orientation change resets sizing. Safari toolbar animation
+    // can emit resize events repeatedly while the user is simply scrolling.
+    if (Math.abs(innerWidth - stableWidth) > 1) {
+      stableWidth = innerWidth;
+      stableHeight = innerHeight;
+    }
+    document.documentElement.style.setProperty('--atlas-stable-height', stableHeight + 'px');
+    const canvasHeight = Math.max(100, Math.min(200, stableHeight * .25));
+    map.style.setProperty('--atlas-map-height', canvasHeight + 'px');
+    map.style.setProperty('--atlas-nav', nav + 'px');
+    const focusLine = nav + canvasHeight + 45;
+    const tops = flowEntries.map(node => node.getBoundingClientRect().top);
+    let current = 0;
+    tops.forEach((top, i) => { if (top <= focusLine) current = i; });
+    select(current);
+    const blend = reduced.matches ? 0 : smooth((focusLine + 140 - tops[last]) / 200);
+    map.style.setProperty('--map-scale', 1 - .24 * blend);
+    map.style.setProperty('--row-lift', (-14 * blend) + 'px');
+    map.style.setProperty('--row-drop', (14 * blend) + 'px');
+    map.classList.toggle('atlas-arrival', blend > 0);
+    flowEntries.forEach(node => node.style.scrollMarginTop = (nav + canvasHeight + 18) + 'px');
+    flowEntries[last].querySelectorAll('.atlas-note').forEach(node => {
+      const top = node.getBoundingClientRect().top;
+      const progress = reduced.matches ? 1 : smooth((stableHeight - 24 - top) / 100);
+      node.style.opacity = progress;
+    });
+  }
+
   function render() {
     pending = false;
+    map.classList.toggle('atlas-mobile', compact.matches);
+    document.body.classList.toggle('atlas-mobile-view', compact.matches);
+    if (compact.matches) { renderFlow(); return; }
     const {nav, top, distance} = geometry();
     const stage = Math.max(0, Math.min(length, (nav - top) / distance * length));
     const index = Math.min(last, Math.floor(stage));
@@ -111,6 +174,12 @@
     if (!pending) { pending = true; requestAnimationFrame(render); }
   }
   buttons.forEach((button, i) => button.addEventListener('click', () => {
+    if (compact.matches) {
+      const inset = topbar.offsetHeight + map.querySelector('.atlas-canvas').offsetHeight + 18;
+      scrollBy({top:flowEntries[i].getBoundingClientRect().top - inset, behavior:'instant'});
+      render();
+      return;
+    }
     const {nav, top, distance} = geometry();
     const destination = i === last ? last + 3.25 : i + .25;
     scrollBy({top:top - nav + distance * destination / length, behavior:'instant'});
@@ -122,6 +191,7 @@
   addEventListener('resize', queue);
   addEventListener('pageshow', queue);
   reduced.addEventListener('change', queue);
+  compact.addEventListener('change', queue);
   document.fonts?.ready.then(queue);
   render();
 })();
