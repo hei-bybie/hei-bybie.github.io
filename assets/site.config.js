@@ -2,7 +2,7 @@
 网站维护说明（仅供编辑，不在页面展示）
 
 栏目结构：01 稻作故事 / 02 实地考察 / 03 参考文献。
-实地考察下设：器物观察 / 器物细读 / 考察安排 / 影像记录。
+实地考察下设：现场考察 / 器物细读 / 影像记录。
 影像记录已并入实地考察，不再作为顶级栏目。
 
 素材路径：
@@ -66,16 +66,12 @@ window.HEMUDU_CONFIG={
   ],
   "fieldSections": [
     {
+      "id": "scene-index",
+      "label": "现场考察"
+    },
+    {
       "id": "field-objects",
-      "label": "器物观察"
-    },
-    {
-      "id": "artifact-reading-title",
       "label": "器物细读"
-    },
-    {
-      "id": "field-plan",
-      "label": "考察安排"
     },
     {
       "id": "film",
@@ -180,14 +176,6 @@ window.HEMUDU_CONFIG={
       ]
     },
     {
-      "id": "park-excavation",
-      "label": "考古发掘展示区",
-      "references": [
-        "r19",
-        "r18"
-      ]
-    },
-    {
       "id": "park-rice",
       "label": "稻作与种植展示",
       "references": [
@@ -202,6 +190,14 @@ window.HEMUDU_CONFIG={
         "r4",
         "r21",
         "r19"
+      ]
+    },
+    {
+      "id": "park-excavation",
+      "label": "考古发掘展示区",
+      "references": [
+        "r19",
+        "r18"
       ]
     }
   ],

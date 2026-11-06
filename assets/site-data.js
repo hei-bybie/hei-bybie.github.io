@@ -44,7 +44,13 @@ window.HEMUDU={
       "url": "https://doi.org/10.1126/science.1166605",
       "note": "论文以田螺山的小穗基盘等植物考古证据讨论稻的驯化过程。这里仅依据公开摘要作主题导读，不将田螺山的具体数据直接当作河姆渡遗址的数据。",
       "access": "公开摘要已核验 · 全文依访问权限",
-      "verify": "https://pubmed.ncbi.nlm.nih.gov/19299619/"
+      "verify": "https://pubmed.ncbi.nlm.nih.gov/19299619/",
+      "readingTargets": [
+        {
+          "id": "park-rice",
+          "label": "稻作导读"
+        }
+      ]
     },
     {
       "id": "r4",
@@ -56,7 +62,37 @@ window.HEMUDU={
       "citation": "中国国家博物馆. 远古江南·海陆山河——河姆渡文化发现50周年考古成果特展[EB/OL]. 2023[2026-10-15]. https://www.chnmuseum.cn/portals/0/web/zt/202311hmdwh/.",
       "url": "https://www.chnmuseum.cn/portals/0/web/zt/202311hmdwh/",
       "note": "提供稻谷、骨耜、梁头榫等器物的展品说明，作为本网站器物导读的来源。这是已结束展览的线上资料，不能作为当前开放信息。",
-      "access": "官方展览资料 · 已读取"
+      "access": "官方展览资料 · 已读取",
+      "readingTargets": [
+        {
+          "id": "park-wharf",
+          "label": "码头导读"
+        },
+        {
+          "id": "park-houses",
+          "label": "干栏房屋导读"
+        },
+        {
+          "id": "artifact-bone",
+          "label": "返回骨耜导读"
+        },
+        {
+          "id": "artifact-wood",
+          "label": "返回榫卯木构件导读"
+        },
+        {
+          "id": "artifact-sun",
+          "label": "返回双鸟朝阳纹象牙蝶形器导读"
+        },
+        {
+          "id": "artifact-bird",
+          "label": "返回牙雕凤鸟匕形器导读"
+        },
+        {
+          "id": "artifact-pig",
+          "label": "返回猪纹陶钵导读"
+        }
+      ]
     },
     {
       "id": "r5",
@@ -68,7 +104,13 @@ window.HEMUDU={
       "citation": "温证聪. 田螺山遗址河姆渡文化的稻作发展水平和饮食食谱的地球化学研究[D]. 杭州: 浙江大学, 2014.",
       "local": "assets/documents/r5.pdf",
       "note": "本文的田螺山个案依据。重点阅读第42—46页（PDF第52—56页）：28个陶器饮食残留物样本、碳氮同位素解释、结论与样品局限。作者认为当地采集渔猎仍很重要，稻作处于初步阶段；本文保留这一判断的对象和范围，不将其推广为整个河姆渡文化的统一食谱。",
-      "access": "已核对摘要、研究方法、饮食讨论、结论与局限 · 原文可下载"
+      "access": "已核对摘要、研究方法、饮食讨论、结论与局限 · 原文可下载",
+      "readingTargets": [
+        {
+          "id": "park-rice",
+          "label": "稻作导读"
+        }
+      ]
     },
     {
       "id": "r6",
@@ -80,7 +122,13 @@ window.HEMUDU={
       "citation": "王梦琪, 陈胜前. 文化生态视角下的河姆渡文化稻作农业体系[J]. 东南文化, 2026(1): 82-91.",
       "local": "assets/documents/r6.pdf",
       "note": "本文的发展序列、工具组合、文化生态体系与历史意义分析的主要依据。重点阅读第83—89页。作者将环境、驯化、技术、社会形态与精神文化联系起来，认为河姆渡相较前一阶段表现出农业体系的成熟性。涉及信仰与社会组织的内容属于研究解释，本文不将其写成由单件文物直接证明的事实。",
-      "access": "已通读正文并核对图表、作者与刊期 · 原文可下载"
+      "access": "已通读正文并核对图表、作者与刊期 · 原文可下载",
+      "readingTargets": [
+        {
+          "id": "park-rice",
+          "label": "稻作导读"
+        }
+      ]
     },
     {
       "id": "r7",
@@ -147,7 +195,17 @@ window.HEMUDU={
       "url": "https://www.chnmuseum.cn/zp/zpml/kgfjp/202008/t20200824_247228.shtml",
       "note": "用于核对骨耜的肩胛骨材料、开槽钻孔、木柄绑缚以及翻土、平地、挖沟和引排水用途。文中人物的具体动作是根据工具功能展开的叙事想象。",
       "access": "官方藏品说明 · 已核对",
-      "citation": "中国国家博物馆. 骨耜[EB/OL]. [2026-10-15]. https://www.chnmuseum.cn/zp/zpml/kgfjp/202008/t20200824_247228.shtml."
+      "citation": "中国国家博物馆. 骨耜[EB/OL]. [2026-10-15]. https://www.chnmuseum.cn/zp/zpml/kgfjp/202008/t20200824_247228.shtml.",
+      "readingTargets": [
+        {
+          "id": "park-rice",
+          "label": "稻作导读"
+        },
+        {
+          "id": "artifact-bone",
+          "label": "返回骨耜导读"
+        }
+      ]
     },
     {
       "id": "r13",
@@ -272,6 +330,10 @@ window.HEMUDU={
         {
           "id": "park-rice",
           "label": "稻作导读"
+        },
+        {
+          "id": "park-houses",
+          "label": "干栏房屋导读"
         }
       ]
     },
@@ -308,6 +370,426 @@ window.HEMUDU={
         {
           "id": "park-wharf",
           "label": "码头导读"
+        }
+      ]
+    },
+    {
+      "id": "r23",
+      "kind": "museum",
+      "year": "—",
+      "source": "上海交通大学董浩云航运博物馆",
+      "title": "《田螺山遗址木桨》",
+      "authors": "上海交通大学董浩云航运博物馆",
+      "url": "https://maritimemuseum.sjtu.edu.cn/info/1161/6061.htm",
+      "note": "木桨的发现与年代",
+      "access": "可打开来源查看资料",
+      "citation": "上海交通大学董浩云航运博物馆. 《田螺山遗址木桨》. https://maritimemuseum.sjtu.edu.cn/info/1161/6061.htm",
+      "readingTargets": [
+        {
+          "id": "park-wharf",
+          "label": "码头导读"
+        }
+      ]
+    },
+    {
+      "id": "r24",
+      "kind": "academic",
+      "year": "—",
+      "source": "宁波中国港口博物馆所载论文",
+      "title": "《海上丝绸之路与宁波地区考古遗存》",
+      "authors": "宁波中国港口博物馆所载论文",
+      "url": "https://www.portmuseum.cn/upload/xs/bgcb/2018/3/14/26668c30-5b4f-47dc-b8d0-fab7c898fa86.pdf",
+      "note": "田螺山临水木构、木桨出土位置及河埠头解释，见文中图一",
+      "access": "可打开来源查看资料",
+      "citation": "宁波中国港口博物馆所载论文. 《海上丝绸之路与宁波地区考古遗存》. https://www.portmuseum.cn/upload/xs/bgcb/2018/3/14/26668c30-5b4f-47dc-b8d0-fab7c898fa86.pdf",
+      "readingTargets": [
+        {
+          "id": "park-wharf",
+          "label": "码头导读"
+        }
+      ]
+    },
+    {
+      "id": "r25",
+      "kind": "academic",
+      "year": "2013",
+      "source": "Pierre Tallet，2013",
+      "title": "The Wadi el-Jarf Site: A Harbor of Khufu on the Red Sea",
+      "authors": "Pierre Tallet，2013",
+      "url": "https://doi.org/10.2458/azu_jaei_v05i1_tallet",
+      "note": "发掘报告，第5卷第1期，第76–84页，记述折角堤、石锚等遗存",
+      "access": "可打开来源查看资料",
+      "citation": "Pierre Tallet，2013. The Wadi el-Jarf Site: A Harbor of Khufu on the Red Sea. 2013. https://doi.org/10.2458/azu_jaei_v05i1_tallet",
+      "readingTargets": [
+        {
+          "id": "park-wharf",
+          "label": "码头导读"
+        }
+      ]
+    },
+    {
+      "id": "r26",
+      "kind": "academic",
+      "year": "—",
+      "source": "法国东方考古研究所",
+      "title": "Ouadi el-Jarf",
+      "authors": "法国东方考古研究所",
+      "url": "https://www.ifao.egnet.net/recherche/archeologie2/ouadi-el-jarf/",
+      "note": "红海港址的地形、工程与西奈航线",
+      "access": "可打开来源查看资料",
+      "citation": "法国东方考古研究所. Ouadi el-Jarf. https://www.ifao.egnet.net/recherche/archeologie2/ouadi-el-jarf/",
+      "readingTargets": [
+        {
+          "id": "park-wharf",
+          "label": "码头导读"
+        }
+      ]
+    },
+    {
+      "id": "r27",
+      "kind": "museum",
+      "year": "—",
+      "source": "中国国家博物馆 · 馆藏精品",
+      "title": "陶釜",
+      "authors": "中国国家博物馆",
+      "url": "https://www.chnmuseum.cn/zp/zpml/kgfjp/202008/t20200824_247235.shtml",
+      "note": "釜底焦饭、陶支脚，以及用稻壳和茎叶碎末制作夹炭陶的说明。",
+      "access": "可打开来源查看资料",
+      "citation": "中国国家博物馆. 陶釜. https://www.chnmuseum.cn/zp/zpml/kgfjp/202008/t20200824_247235.shtml",
+      "readingTargets": [
+        {
+          "id": "park-rice",
+          "label": "稻作导读"
+        },
+        {
+          "id": "artifact-pottery",
+          "label": "返回夹炭黑陶釜导读"
+        }
+      ]
+    },
+    {
+      "id": "r28",
+      "kind": "museum",
+      "year": "2015",
+      "source": "大都会艺术博物馆 · 古埃及饮食",
+      "title": "Food and Feasts in Middle Kingdom Egypt",
+      "authors": "大都会艺术博物馆",
+      "url": "https://www.metmuseum.org/fr/perspectives/food-and-feasts-in-middle-kingdom-egypt",
+      "note": "古埃及中王国的二粒小麦面包与啤酒。",
+      "access": "可打开来源查看资料",
+      "citation": "大都会艺术博物馆. Food and Feasts in Middle Kingdom Egypt. 2015. https://www.metmuseum.org/fr/perspectives/food-and-feasts-in-middle-kingdom-egypt",
+      "readingTargets": [
+        {
+          "id": "park-rice",
+          "label": "稻作导读"
+        }
+      ]
+    },
+    {
+      "id": "r29",
+      "kind": "academic",
+      "year": "2003",
+      "source": "浙江省文物考古研究所编",
+      "title": "河姆渡——新石器时代遗址考古发掘报告",
+      "authors": "浙江省文物考古研究所编",
+      "url": "https://books.google.com/books?id=xXdFLgEACAAJ",
+      "note": "文物出版社。书目链接。",
+      "access": "可打开来源查看资料",
+      "citation": "浙江省文物考古研究所编. 河姆渡——新石器时代遗址考古发掘报告. 2003. https://books.google.com/books?id=xXdFLgEACAAJ",
+      "readingTargets": [
+        {
+          "id": "park-houses",
+          "label": "干栏房屋导读"
+        },
+        {
+          "id": "artifact-wood",
+          "label": "返回榫卯木构件导读"
+        }
+      ]
+    },
+    {
+      "id": "r30",
+      "kind": "academic",
+      "year": "—",
+      "source": "苏荣誉",
+      "title": "论中国冶铜术的起源及早期冶铜术",
+      "authors": "苏荣誉",
+      "url": "https://english.ihns.cas.cn/Publications/Ra/201310/W020131014609393099325.pdf",
+      "note": "第一节涉及河姆渡的桩列与房屋构造。",
+      "access": "可打开来源查看资料",
+      "citation": "苏荣誉. 论中国冶铜术的起源及早期冶铜术. https://english.ihns.cas.cn/Publications/Ra/201310/W020131014609393099325.pdf",
+      "readingTargets": [
+        {
+          "id": "park-houses",
+          "label": "干栏房屋导读"
+        }
+      ]
+    },
+    {
+      "id": "r31",
+      "kind": "academic",
+      "year": "—",
+      "source": "Amarna Project",
+      "title": "Workmen’s Village",
+      "authors": "Amarna Project",
+      "url": "https://www.amarnaproject.com/amarna-the-place/workmens-village/",
+      "note": "阿玛尔纳工人村的地形、街巷与制砖取土坑。",
+      "access": "可打开来源查看资料",
+      "citation": "Amarna Project. Workmen’s Village. https://www.amarnaproject.com/amarna-the-place/workmens-village/",
+      "readingTargets": [
+        {
+          "id": "park-houses",
+          "label": "干栏房屋导读"
+        }
+      ]
+    },
+    {
+      "id": "r32",
+      "kind": "academic",
+      "year": "—",
+      "source": "Amarna Project",
+      "title": "Mud brick and termites in Amarna",
+      "authors": "Amarna Project",
+      "url": "https://www.amarnaproject.com/mud-brick-and-termites-in-amarna/",
+      "note": "阿玛尔纳泥砖的取材与制作。",
+      "access": "可打开来源查看资料",
+      "citation": "Amarna Project. Mud brick and termites in Amarna. https://www.amarnaproject.com/mud-brick-and-termites-in-amarna/",
+      "readingTargets": [
+        {
+          "id": "park-houses",
+          "label": "干栏房屋导读"
+        }
+      ]
+    },
+    {
+      "id": "r33",
+      "kind": "academic",
+      "year": "2020",
+      "title": "西侯度遗址含石制品地层的埋藏测年",
+      "source": "L’Anthropologie",
+      "authors": "L’Anthropologie",
+      "url": "https://doi.org/10.1016/j.anthro.2020.102790",
+      "access": "在线资料",
+      "note": "地图起点依据含石制品地层约243万年的测年，人工属性及其解释仍有讨论。",
+      "citation": "L’Anthropologie. 西侯度遗址含石制品地层的埋藏测年. https://doi.org/10.1016/j.anthro.2020.102790",
+      "readingTargets": [
+        {
+          "id": "prehistoric-atlas",
+          "label": "返回首页导读"
+        }
+      ]
+    },
+    {
+      "id": "r34",
+      "kind": "academic",
+      "year": "2018",
+      "title": "Hominin occupation of the Chinese Loess Plateau since about 2.1 million years ago",
+      "source": "Zhu 等 · Nature",
+      "authors": "Zhu 等 · Nature",
+      "url": "https://www.nature.com/articles/s41586-018-0299-4",
+      "access": "在线资料",
+      "note": "上陈含石器层与早期人类活动的年代。",
+      "citation": "Zhu 等 · Nature. Hominin occupation of the Chinese Loess Plateau since about 2.1 million years ago. https://www.nature.com/articles/s41586-018-0299-4",
+      "readingTargets": [
+        {
+          "id": "prehistoric-atlas",
+          "label": "返回首页导读"
+        }
+      ]
+    },
+    {
+      "id": "r35",
+      "kind": "academic",
+      "year": "2008",
+      "title": "Early evidence of the genus Homo in East Asia",
+      "source": "Zhu 等 · Journal of Human Evolution",
+      "authors": "Zhu 等 · Journal of Human Evolution",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18842287/",
+      "access": "在线资料",
+      "note": "元谋化石地层测年与门齿发现。",
+      "citation": "Zhu 等 · Journal of Human Evolution. Early evidence of the genus Homo in East Asia. https://pubmed.ncbi.nlm.nih.gov/18842287/",
+      "readingTargets": [
+        {
+          "id": "prehistoric-atlas",
+          "label": "返回首页导读"
+        }
+      ]
+    },
+    {
+      "id": "r36",
+      "kind": "academic",
+      "year": "2009",
+      "title": "Age of Zhoukoudian Homo erectus determined with ²⁶Al/¹⁰Be burial dating",
+      "source": "Shen 等 · Nature",
+      "authors": "Shen 等 · Nature",
+      "url": "https://www.nature.com/articles/nature07741",
+      "access": "在线资料",
+      "note": "周口店第一地点第7至10层约77万年前。",
+      "citation": "Shen 等 · Nature. Age of Zhoukoudian Homo erectus determined with ²⁶Al/¹⁰Be burial dating. https://www.nature.com/articles/nature07741",
+      "readingTargets": [
+        {
+          "id": "prehistoric-atlas",
+          "label": "返回首页导读"
+        }
+      ]
+    },
+    {
+      "id": "r37",
+      "kind": "academic",
+      "year": "2018",
+      "title": "周口店山顶洞年代研究取得新进展",
+      "source": "中国科学院古脊椎动物与古人类研究所",
+      "authors": "中国科学院古脊椎动物与古人类研究所",
+      "url": "https://ivpp.cas.cn/xwdt/kyjz/201811/t20181103_5155552.html",
+      "access": "在线资料",
+      "note": "约3.8万至3.5万年前为富含人类化石与装饰品层位的年代。",
+      "citation": "中国科学院古脊椎动物与古人类研究所. 周口店山顶洞年代研究取得新进展. https://ivpp.cas.cn/xwdt/kyjz/201811/t20181103_5155552.html",
+      "readingTargets": [
+        {
+          "id": "prehistoric-atlas",
+          "label": "返回首页导读"
+        }
+      ]
+    },
+    {
+      "id": "r38",
+      "kind": "museum",
+      "year": "2021",
+      "title": "稻·源·启明——浙江上山文化考古特展",
+      "source": "中国国家博物馆",
+      "authors": "中国国家博物馆",
+      "url": "https://www.chnmuseum.cn/portals/0/web/zt/202111sswhkg/",
+      "access": "在线资料",
+      "note": "浙江上山文化年代、聚落与稻作线索。",
+      "citation": "中国国家博物馆. 稻·源·启明——浙江上山文化考古特展. https://www.chnmuseum.cn/portals/0/web/zt/202111sswhkg/",
+      "readingTargets": [
+        {
+          "id": "prehistoric-atlas",
+          "label": "返回首页导读"
+        }
+      ]
+    },
+    {
+      "id": "r39",
+      "kind": "museum",
+      "year": "2024",
+      "title": "七千年河姆渡，五十载考古路",
+      "source": "宁波博物院",
+      "authors": "宁波博物院",
+      "url": "https://www.nbmuseum.cn/art/2024/4/30/art_20380_3491.html",
+      "access": "在线资料",
+      "note": "展览中的木构件、猪纹陶钵与双鸟朝阳蝶形器。",
+      "citation": "宁波博物院. 七千年河姆渡，五十载考古路. https://www.nbmuseum.cn/art/2024/4/30/art_20380_3491.html",
+      "readingTargets": [
+        {
+          "id": "about",
+          "label": "返回首页导读"
+        },
+        {
+          "id": "artifact-pig",
+          "label": "返回猪纹陶钵导读"
+        }
+      ]
+    },
+    {
+      "id": "r40",
+      "kind": "heritage",
+      "year": "—",
+      "authors": "教育百科",
+      "source": "教育百科",
+      "title": "河姆渡文化",
+      "url": "https://pedia.cloud.edu.tw/Entry/WikiContent?title=%E6%B2%B3%E5%A7%86%E6%B8%A1%E6%96%87%E5%8C%96",
+      "note": "稻作工具、容器及其生活背景。",
+      "access": "可打开来源阅读",
+      "citation": "教育百科：《河姆渡文化》。https://pedia.cloud.edu.tw/Entry/WikiContent?title=%E6%B2%B3%E5%A7%86%E6%B8%A1%E6%96%87%E5%8C%96",
+      "readingTargets": [
+        {
+          "id": "artifact-bone",
+          "label": "返回骨耜导读"
+        },
+        {
+          "id": "artifact-pig",
+          "label": "返回猪纹陶钵导读"
+        }
+      ]
+    },
+    {
+      "id": "r41",
+      "kind": "museum",
+      "year": "—",
+      "authors": "中国国家博物馆",
+      "source": "中国国家博物馆",
+      "title": "骨哨",
+      "url": "https://www.chnmuseum.cn/zp/zpml/kgfjp/202107/t20210719_250703.shtml",
+      "note": "骨管开孔、可动骨芯及诱猎用途的解释。",
+      "access": "可打开来源阅读",
+      "citation": "中国国家博物馆：《骨哨》。https://www.chnmuseum.cn/zp/zpml/kgfjp/202107/t20210719_250703.shtml",
+      "readingTargets": [
+        {
+          "id": "artifact-whistle",
+          "label": "返回骨哨导读"
+        }
+      ]
+    },
+    {
+      "id": "r42",
+      "kind": "museum",
+      "year": "—",
+      "authors": "中国国家博物馆",
+      "source": "中国国家博物馆",
+      "title": "牙雕凤鸟匕形器",
+      "url": "https://www.chnmuseum.cn/zp/zpml/kgfjp/202008/t20200824_247260.shtml",
+      "note": "器物轮廓、穿孔与仪式或装饰用途的讨论。",
+      "access": "可打开来源阅读",
+      "citation": "中国国家博物馆：《牙雕凤鸟匕形器》。https://www.chnmuseum.cn/zp/zpml/kgfjp/202008/t20200824_247260.shtml",
+      "readingTargets": [
+        {
+          "id": "artifact-bird",
+          "label": "返回牙雕凤鸟匕形器导读"
+        }
+      ]
+    },
+    {
+      "id": "r43",
+      "kind": "heritage",
+      "year": "—",
+      "authors": "维基百科",
+      "source": "维基百科",
+      "title": "河姆渡遗址",
+      "url": "https://zh.wikipedia.org/wiki/%E6%B2%B3%E5%A7%86%E6%B8%A1%E9%81%97%E5%9D%80",
+      "note": "陶器、乐器与建筑遗存的综合梳理。",
+      "access": "可打开来源阅读",
+      "citation": "维基百科：《河姆渡遗址》。https://zh.wikipedia.org/wiki/%E6%B2%B3%E5%A7%86%E6%B8%A1%E9%81%97%E5%9D%80",
+      "readingTargets": [
+        {
+          "id": "artifact-whistle",
+          "label": "返回骨哨导读"
+        },
+        {
+          "id": "artifact-pottery",
+          "label": "返回夹炭黑陶釜导读"
+        },
+        {
+          "id": "artifact-wood",
+          "label": "返回榫卯木构件导读"
+        }
+      ]
+    },
+    {
+      "id": "r44",
+      "kind": "heritage",
+      "year": "—",
+      "authors": "维基百科",
+      "source": "维基百科",
+      "title": "双鸟朝阳纹牙雕",
+      "url": "https://zh.wikipedia.org/wiki/%E5%8F%8C%E9%B8%9F%E6%9C%9D%E9%98%B3%E7%BA%B9%E7%89%99%E9%9B%95",
+      "note": "名称、构图与象征解释。",
+      "access": "可打开来源阅读",
+      "citation": "维基百科：《双鸟朝阳纹牙雕》。https://zh.wikipedia.org/wiki/%E5%8F%8C%E9%B8%9F%E6%9C%9D%E9%98%B3%E7%BA%B9%E7%89%99%E9%9B%95",
+      "readingTargets": [
+        {
+          "id": "artifact-sun",
+          "label": "返回双鸟朝阳纹象牙蝶形器导读"
         }
       ]
     }

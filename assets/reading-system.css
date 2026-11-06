@@ -1,0 +1,40 @@
+/* Type families mirror the cover, essay and captions in the rice story. */
+:root {
+  --story-body:15px; --story-leading:2.15;
+  --story-heading:37px; --heading-leading:1.35;
+  --story-cover:clamp(35px,4.2vw,56px);
+  --story-label:11px; --story-caption:9px;
+  --motion-time:320ms; --motion-curve:cubic-bezier(.333333,0,.666667,1);
+  --step-travel:24svh; --nav-height:71px;
+}
+@media(max-width:1000px){:root{--story-body:14px;--story-heading:34px;--story-cover:42px}}
+@media(max-width:700px){:root{--story-leading:2.1;--story-heading:31px;--heading-leading:1.4;--story-cover:39px;--story-label:9px;--nav-height:97px}}
+@media screen{
+  body :is(#main,dialog) :is(.essay-body>p:not(.essay-kicker,.essay-endnote),.atlas-copy>p:not(.eyebrow),.atlas-note,.park-copy>p,.artifact-essay-body>p,.objects-intro,.object-card>p,.field-item p,.artifact-reading-intro>p,.research-intro,.fieldwork-heading-row>p,.field-media-copy>p:not(.eyebrow,.media-hint),.ref-detail>p,.article-takeaway>p,.reader-copy>p:not(.eyebrow),.section-heading>p,.outro p:not(.eyebrow)){
+    font-size:var(--story-body);line-height:var(--story-leading);
+  }
+  #object-dialog #object-description{font-size:var(--story-body);line-height:var(--story-leading)}
+  body #main :is(.atlas-copy h3,.park-essay-heading h3,.artifact-essay-name,.atlas-map h2,.artifact-reading-intro h2,.atlas-info .atlas-name,.field-media-copy h2,.gallery-heading h3){font-size:var(--story-heading);line-height:var(--heading-leading)}
+  body #main :is(.atlas-intro h2,.feature-cover-copy h2,.fieldwork-heading-row h2,.objects-section>div>h2,.section-heading h2,.outro h2){font-size:var(--story-cover);line-height:1.23}
+  body #main :is(.park-copy h4,.artifact-essay-subtitle,.object-card h3,.field-item h3,.ref-item h3){font-size:calc(var(--story-body) + 5px);line-height:1.55}
+  body #main :is(figcaption,.atlas-caption){font-size:var(--story-caption);line-height:1.8}
+  body #main :is(.eyebrow,.atlas-hint,.atlas-place,.small-caps,.ref-authors,.ref-meta,.media-hint,.object-index,.park-essay-heading>span){font-size:var(--story-label);line-height:1.7}
+  .atlas-hero{box-sizing:border-box;height:calc(100vh - var(--nav-height));height:calc(100dvh - var(--nav-height));min-height:max-content;align-items:start;padding:clamp(48px,12vh,150px) 0 45px}
+  .atlas-hero>img{top:0;bottom:0;height:100%;object-fit:cover;object-position:62% 62%}
+  .atlas-hero:before{background:linear-gradient(90deg,#f7f2e533,transparent 62%)}
+  .atlas-map.ready{height:calc(100svh - var(--nav-height) + 7 * var(--step-travel))}
+  .atlas-map .atlas-sticky{top:var(--nav-height)}
+  .atlas-map .atlas-info h3{margin-block:7px}
+  .fieldwork-bridge.has-scroll-sequence{height:calc(100svh - var(--nav-height) + 6 * var(--step-travel))}
+  .atlas-map .map-site{transition-timing-function:var(--motion-curve);transition-duration:var(--motion-time)}
+  .atlas-caption{z-index:1}
+}
+@media screen and (max-width:720px){
+  .atlas-hero{padding:clamp(34px,8vh,82px) 0 36px}
+  .atlas-hero>img{object-position:77% center}
+  .atlas-hero:before{background:linear-gradient(180deg,#f7f2e533 0%,transparent 50%)}
+  .atlas-info h3.atlas-name{font-size:calc(var(--story-body) + 5px)!important}
+  .atlas-note{min-height:0}
+}
+@media screen and (max-height:540px){.atlas-map.ready{height:auto}.atlas-map.ready .atlas-sticky{position:static}.atlas-hero{padding-block:16px}.atlas-hero h1{font-size:clamp(36px,7vh,60px);margin-block:2px}.atlas-hero .tagline{font-size:20px;margin-bottom:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.reading-reveal{opacity:1!important;transform:none!important}}

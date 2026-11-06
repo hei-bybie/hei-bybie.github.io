@@ -13,6 +13,12 @@
     const label=root.querySelector('.feature-heading > .eyebrow, .fieldwork-heading > .eyebrow, .section-heading .eyebrow');
     if(label)label.textContent='CHAPTER '+String(index+1).padStart(2,'0')+' / '+chapter.label;
   });
+  // One shared offset keeps fragment links clear of the sticky header.
+  const siteHeader = document.querySelector('header');
+  const syncNavHeight = () => document.documentElement.style.setProperty('--jump-inset', Math.ceil(siteHeader.getBoundingClientRect().height) + 'px');
+  syncNavHeight();
+  if ('ResizeObserver' in window) new ResizeObserver(syncNavHeight).observe(siteHeader);
+  else window.addEventListener('resize', syncNavHeight);
   let toastTimer;
   function toast(message) { $('#toast').textContent = message; $('#toast').hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { $('#toast').hidden = true; }, 3000); }
   function download(name, content, type = 'text/plain;charset=utf-8') { const url = URL.createObjectURL(new Blob(['\uFEFF', content], {type})); const a = document.createElement('a'); a.href = url; a.download = name; document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1500); }
@@ -36,29 +42,55 @@
   $$('[data-close]').forEach(button => button.addEventListener('click', () => document.getElementById(button.dataset.close).close()));
   $$('dialog').forEach(dialog => { dialog.addEventListener('click', event => { if(event.target === dialog) { const rect = dialog.getBoundingClientRect(); if(event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } }); dialog.addEventListener('close', () => document.body.style.overflow = ''); });
   const objectCards = {
+"park-wharf": {"title": "河姆渡码头", "summary": "从田螺山出土的木桨、横木与小桩出发，追问河姆渡人怎样靠岸。文中对照古埃及红海港口，配有遗迹关系图、栈台构造图，以及可随滚动逐步搭建的水岸场景。", "target": "park-wharf"}, "park-excavation": {"title": "考古发掘展示区", "summary": "从空中辨认成排的木桩与横木，看看考古人员怎样从残存的构件读出一处聚落。", "target": "park-excavation"}, "park-rice": {"title": "稻作与种植展示", "summary": "从骨耜翻土、落种护苗，到收穗、舂谷与陶釜煮食，跟随一季农事，比较河姆渡稻米与古埃及麦作饮食。文末可滚动观看六道工序。", "target": "park-rice"}, "park-houses": {"title": "干栏式房屋", "summary": "地板下的稻壳、成排的木桩和梁端的榫头，留下了河姆渡人在湿地建屋的线索。文章从今日馆舍的航拍出发，对照房屋分解图，说明桩、梁和地板如何承重，再与古埃及工人村的泥砖住宅比较。文末可随滚动逐步搭起一座长屋。", "target": "park-houses"},
+
   "bone": {
     "title": "骨耜",
-    "summary": "骨耜以动物肩胛骨制成，凿孔开槽后绑缚木柄，兼具耕作和挖掘用途，是理解湿地生活、材料利用与工具技术的重要线索。",
-    "note": "图片仅作形态参考，年代、出土信息与确切器名以展签核对。"
+    "summary": "顺着骨面上的浅槽和穿孔，可以读出一把铲掘工具的装柄方法。 骨头原有的扁阔部分足以做铲面，厚实的一端则可加工成装柄处。",
+    "reference": "r4"
+  },
+  "whistle": {
+    "title": "骨哨",
+    "summary": "中空的禽骨、侧面的开孔和可移动的骨芯，给狩猎用声留下线索。 国博藏品说明提到，有些骨哨管内还插着一根能够移动的细骨。",
+    "reference": "r41"
   },
   "pottery": {
-    "title": "陶器",
-    "summary": "陶器连接食物加工、烹煮与盛放，从器形、胎质和使用痕迹入手，可以认识河姆渡人的日常饮食及其积累的制陶经验。",
-    "note": "图片仅作形态参考，年代、出土信息与确切器名以展签核对。"
+    "title": "夹炭黑陶釜",
+    "summary": "釜底的断口、泥胎中的植物碎屑和灶下的支脚，串起了做饭的一道工序。 顺着断面可以辨认出一片片泥料相接的痕迹：匠人先把泥捏成片，再一层层贴出圆鼓的器腹。",
+    "reference": "r27"
   },
   "wood": {
-    "title": "榫卯木构",
-    "summary": "榫卯通过木构件之间的凹凸咬合完成连接，体现材料加工与结构经验，也为理解干栏建筑及湿地定居生活提供了重要线索。",
-    "note": "附图为展陈环境参考，不作木构件识别。"
+    "title": "榫卯木构件",
+    "summary": "从梁头榫两端削去的木料，观察干栏式房屋的构件如何相接。 把目光从一头移到另一头，可以看到两个形状不同的榫头：一端从一面削薄，留下扁榫，另一端只保留一角，形成较细的方榫。",
+    "reference": "r4"
+  },
+  "sun": {
+    "title": "双鸟朝阳纹象牙蝶形器",
+    "summary": "正面的鸟纹与同心圆、背面的绑缚痕迹，分别提供了图像和使用方式的线索。 圆的上半部伸出火焰般的纹样，两侧各有一只钩喙的鸟回首相望。",
+    "reference": "r4"
+  },
+  "bird": {
+    "title": "牙雕凤鸟匕形器",
+    "summary": "扁长的鸟尾近似匙柄，腹背间的穿孔则提示了另一种用法。 鸟喙向下弯，眼睛圆而突出，两翼收在身侧，刻出的短线让平滑的牙面有了羽毛的层次。",
+    "reference": "r42"
+  },
+  "pig": {
+    "title": "猪纹陶钵",
+    "summary": "圆角的黑陶钵原可盛储，器壁上的猪纹使它也成为观察史前图像的窗口。 浙江省博物馆收藏的这件夹炭黑陶钵，器表磨得平整，两条长边各刻一头猪。",
+    "reference": "r4"
   }
+
 };
   $$('button[data-object]').forEach(button => button.addEventListener('click', () => {
     const key=button.dataset.object;
     const card=objectCards[key];
     $('#object-title').textContent=titleText(card.title);
+    $('#object-dialog .small-caps').textContent = card.target ? 'FIELD NOTES / 现场简介' : 'OBJECT NOTES / 图片与摘要';
     $('#object-description').textContent=card.summary;
     $('#object-media').replaceChildren(document.getElementById('object-photo-'+key).content.cloneNode(true));
-    $('#object-read').setAttribute('href','#artifact-'+key);
+    $('#object-read').setAttribute('href','#'+(card.target || 'artifact-'+key));
+    $('#object-ref').href = card.reference ? '#' + card.reference : '#research';
+    $('#object-ref').textContent = card.reference ? '查看本件资料 ↗' : '参考资料 ↗';
     $('#object-dialog').showModal();
   }));
   $('#object-ref').addEventListener('click', () => $('#object-dialog').close());
@@ -67,17 +99,6 @@
     $('#object-dialog').close();
     requestAnimationFrame(()=>{const article=document.getElementById(id);article.focus({preventScroll:true});article.scrollIntoView({block:'start'});});
   });
-  const panels = {
-    plan: [ ['河姆渡遗址博物馆与遗址展示','优先记录稻谷、骨耜、陶器与木构件；同时拍下展签，区分原件、复制品与复原图。','核心考察 · 待开展'], ['田螺山遗址现场馆','作为补充考察，关注遗迹空间与保护展示；出发前确认开放情况。','补充考察 · 待确认'], ['宁波博物馆','比较城市综合博物馆如何讲述河姆渡，记录展陈叙事与观众理解方式。','对比观察 · 可选'] ],
-    method: [ ['三件器物，三张观察卡','记录名称、年代、出土地点、材质、用途、速写与照片编号；为每一处漫画细节找到来源。','实物观察'], ['一个场景，一次复原辨析','询问哪些细节由遗迹支持，哪些属于展示解释。访谈须获得同意，保留原意并注明身份。','现场访谈'], ['一轮试读，一次修改','邀请 5—10 位同学阅读初稿，记录记住了什么、哪里难理解，以及是否混淆了虚构与事实。','读者反馈 · 样本待收集'] ],
-    report: [ ['提出问题与说明方法','为什么从“一顿饭”切入？说明查阅、观察、访谈和试读的方法及其限制。','第 1—2 部分'], ['呈现发现与创作转化','用“照片 / 速写—资料依据—漫画分镜”对应展示，把现场发现转化为画面选择。','第 3—4 部分'], ['反思、参考文献与附录','说明不确定细节与修改过程，附真实考察日期、照片编号、访谈记录和参考文献。','第 5—6 部分 · 报告待完成'] ]
-  };
-  function renderPanel(key) { $('#field-panel').innerHTML = panels[key].map((item,i) => `<article class="field-item"><span>0${i+1}</span><h3>${titleText(item[0])}</h3><p>${item[1]}</p><em>${item[2]}</em></article>`).join(''); $('#field-panel').setAttribute('aria-labelledby','tab-'+key); }
-  $$('[data-tab]').forEach((button,index,buttons) => {
-    button.addEventListener('click', () => { buttons.forEach(b => { b.setAttribute('aria-selected', String(b === button)); b.tabIndex = b === button ? 0 : -1; }); renderPanel(button.dataset.tab); });
-    button.addEventListener('keydown', event => { let next; if(event.key === 'ArrowRight') next=(index+1)%buttons.length; if(event.key === 'ArrowLeft') next=(index+buttons.length-1)%buttons.length; if(event.key==='Home') next=0; if(event.key==='End') next=buttons.length-1; if(next!==undefined) { event.preventDefault(); buttons[next].click(); buttons[next].focus(); } });
-  });
-  renderPanel('plan');
   const notes = '# 河姆渡文化实践 · 实地考察记录表\n\n考察者：\n日期与时间：\n地点：\n天气：\n拍摄与访谈许可情况：\n\n## 一、文物观察卡（每件复制一份）\n名称：\n年代 / 文化层：\n出土地点：\n现藏单位：\n原件 / 复制品 / 模型：\n材质、尺寸与形态：\n展签原文或摘要（区分记录）：\n展签照片编号：\n细节照片编号：\n速写：\n已知用途及依据：\n尚需核实的问题：\n拟用于漫画的篇章 / 画面：\n\n## 二、复原场景记录\n场景名称：\n有直接出土依据的部分：\n解释性复原的部分：\n依据来源与照片编号：\n\n## 三、访谈\n是否征得同意：\n受访者身份（可匿名）：\n问题：\n回答摘要（与逐字引语区分）：\n\n## 四、影像记录\n文件名：\n拍摄地点和日期：\n画面说明：\n拍摄者与使用范围：\n\n## 五、试读反馈（考察后）\n样本人数：\n记住了什么：\n难理解之处：\n有无混淆虚构与事实：\n计划修改：\n\n## 六、考察后复核\n新增资料：\n需要修改的画面：\n无法确定的细节：\n';
   $$('.download-notes').forEach(button => button.addEventListener('click', () => download('河姆渡实地考察记录表.md', notes, 'text/markdown;charset=utf-8')));
   let currentFilter = 'all';
@@ -146,5 +167,5 @@
   if(data.gallery.length) { $('#gallery-grid').replaceChildren();data.gallery.forEach(addPhoto); }
   $('#photo-file').addEventListener('change',event=>{ const files=[...event.target.files].filter(file=>file.type.startsWith('image/')); if(!files.length) return; $$('.photo-placeholder').forEach(p=>p.remove()); files.forEach(file=>{const url=URL.createObjectURL(file);photoUrls.push(url);addPhoto({src:url,alt:file.name,caption:file.name+' · 本地临时预览'});}); toast('照片已加入当前预览，刷新后需重新选择');event.target.value=''; });
   window.addEventListener('beforeunload',()=>{ if(videoUrl) URL.revokeObjectURL(videoUrl);photoUrls.forEach(url=>URL.revokeObjectURL(url)); });
-  if('IntersectionObserver' in window) { const observer=new IntersectionObserver(entries=>{ entries.forEach(entry=>{ if(entry.isIntersecting) $$('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+(entry.target.closest('.fieldwork-chapter') ? 'fieldwork' : entry.target.id))); }); },{rootMargin:'-20% 0px -60% 0px'}); ['story','fieldwork','field-objects','artifact-bone','artifact-pottery','artifact-wood','field-plan','film','park-wharf','park-excavation','park-rice','park-houses','research'].forEach(id=>observer.observe(document.getElementById(id))); }
+  if('IntersectionObserver' in window) { const observer=new IntersectionObserver(entries=>{ entries.forEach(entry=>{ if(entry.isIntersecting) $$('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+(entry.target.closest('.fieldwork-chapter') ? 'fieldwork' : entry.target.id))); }); },{rootMargin:'-20% 0px -60% 0px'}); $$('#story, #fieldwork, #scene-index, #field-objects, .park-observation, #film, #research').forEach(node => observer.observe(node)); }
 })();

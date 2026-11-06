@@ -16,7 +16,28 @@
     '.artifact-essay-side',
     '.artifact-essay-body > h4',
     '.artifact-essay-body > p',
-    '.artifact-essay-source'
+    '.artifact-essay-source',
+    '.atlas-hero > img',
+    '.atlas-hero .wrap > *',
+    '.atlas-hero .atlas-caption',
+    '.atlas-intro .atlas-copy > *',
+    '.atlas-illustration',
+    '.atlas-intro .project-strip a',
+    '.atlas-intro details',
+    '.atlas-head',
+    '.atlas-grid > .atlas-canvas',
+    '.atlas-grid > .atlas-info',
+    '.atlas-controls',
+    '.atlas-hint',
+    '.park-essay-heading',
+    '.park-copy > h4',
+    '.park-copy > p',
+    '.park-readings figure',
+    '.scene-refs',
+    '.scene-cards .object-card',
+    '.gallery-heading',
+    '#story .inline-illustration',
+    '#story .feature-cover-art'
   ].join(',')));
   if (!targets.length || !window.requestAnimationFrame || !window.matchMedia) return;
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -66,7 +87,7 @@
         const focused = state.node.contains(document.activeElement);
         const progress = motion.matches || focused ? 1 : Math.max(0, Math.min(1, (start - positions[index]) / (start - end)));
         // A shared scroll position gives the same appearance in both directions.
-        paint(state, progress * progress * (3 - 2 * progress));
+        paint(state, window.HemuduMotion.smooth(progress));
       });
     } catch (_) { revealAll(); }
   };

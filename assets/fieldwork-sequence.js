@@ -88,11 +88,11 @@
     const stickyTop=parseFloat(window.getComputedStyle(pin).top) || 0;
     const travel=Math.max(1,scene.offsetHeight-pin.offsetHeight);
     const progress=clamp((stickyTop-box.top)/travel);
-    const index=Math.round(progress*(frames.length-1));
+    const index=Math.round(window.HemuduMotion.smooth(progress)*(frames.length-1));
     const near=box.top < window.innerHeight*2 && box.bottom > -window.innerHeight;
     requestFrame(index,near);
-    const introOpacity=1-clamp((progress-.14)/.25);
-    const outroOpacity=clamp((progress-.68)/.2);
+    const introOpacity=1-window.HemuduMotion.smooth((progress-.14)/.24);
+    const outroOpacity=window.HemuduMotion.smooth((progress-.68)/.24);
     intro.style.opacity=String(introOpacity);
     intro.style.transform=`translateY(calc(-50% - ${(1-introOpacity)*20}px))`;
     outro.style.opacity=String(outroOpacity);

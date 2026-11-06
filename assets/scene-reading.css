@@ -1,0 +1,44 @@
+.fieldwork-chapter .scene-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:14px 0 44px;overflow:visible}
+.fieldwork-chapter .scene-cards .object-card{min-width:0;min-height:0;padding:20px 19px 58px}
+.fieldwork-chapter .scene-cards .object-index{color:#657855}
+.fieldwork-chapter .scene-cards .object-card>img{display:block;aspect-ratio:4/3;width:100%;height:auto;padding:0;background:#f5f2e7;object-fit:cover;margin:15px 0 18px}
+.fieldwork-chapter .scene-cards .object-card:hover>img{transform:none}
+.fieldwork-chapter .scene-cards .object-card h3{font-size:clamp(17px,1.6vw,23px);line-height:1.45;margin:0 0 8px}
+.fieldwork-chapter .scene-cards .object-card p{color:#627456;padding:0;margin:0}
+.fieldwork-chapter .scene-cards .object-jump,.fieldwork-chapter #field-objects .object-jump{display:inline-flex!important}
+#scene-index{scroll-margin-top:115px}
+.object-photo-surface.scene-preview{height:auto;max-height:52vh;padding:10px}
+.scene-preview a{display:block;min-width:0;width:100%}.object-photo-surface.scene-preview img{display:block;width:100%;height:clamp(175px,43vh,355px);max-height:none;object-fit:contain}
+.house-row+.house-row{margin-top:32px;padding-top:32px;border-top:1px solid #e1e6d9}
+.house-drawing a{border-radius:14px;background:#f5f2e7;padding:12px}
+.house-drawing img{aspect-ratio:auto;background:none;border-radius:0;object-fit:contain}
+.house-row .park-copy>.house-drawing{width:min(100%,350px);margin:20px 0 0}
+.house-end{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,1fr);align-items:start;gap:46px;margin-top:30px}
+.house-end .park-supplement{margin:0}
+.house-end details{border-block:1px solid #dce3d2;padding:14px 0;color:#617552;font-size:13px;line-height:1.85}
+.house-end summary{cursor:pointer;font-weight:550}.house-end ol{padding-left:1.5em}.house-end li+li{margin-top:8px}
+.house-end a:hover{text-decoration:underline}
+@media(max-width:950px){.fieldwork-chapter .scene-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.fieldwork-chapter .scene-cards .object-card>img{aspect-ratio:16/8}}
+@media(max-width:700px){.fieldwork-chapter .scene-cards{gap:10px;margin-bottom:24px}.fieldwork-chapter .scene-cards .object-card{padding:13px 12px 56px;border-radius:15px}.fieldwork-chapter .scene-cards .object-card>img{aspect-ratio:4/3;margin:12px 0;border-radius:8px}.fieldwork-chapter .scene-cards .object-card p{line-height:1.7}.scene-cards .object-card .circle-button{right:12px;bottom:12px}.scene-cards .object-card .object-jump{right:57px;bottom:12px}.house-end{display:block}.house-end details{margin-top:18px}.house-row+.house-row{margin-top:22px;padding-top:24px}}
+@media print{.scene-cards,hemudu-build{display:none!important}}
+
+#park-wharf .park-extra-views{margin-top:0}#park-wharf .park-copy>.house-drawing{width:100%;margin:8px 0 16px}#wharf-references li{scroll-margin-top:120px}@media print{hemudu-wharf{display:none}}
+
+.rice-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:28px 0}
+.house-row .rice-strip{grid-template-columns:repeat(2,minmax(0,1fr));margin:0}.rice-strip .park-figure{margin:0}
+@media(max-width:700px){.rice-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.house-row .rice-strip{margin-bottom:20px}}
+@media print{hemudu-rice-work{display:none}}
+
+.scene-refs{margin:18px 0 38px;padding:14px 0;border-block:1px solid #dce3d2;color:#536a46;font-size:13px;line-height:1.8}.scene-refs summary{cursor:pointer;font-weight:550}.scene-refs ul{list-style:none;margin:12px 0 0;padding:0}.scene-refs li{margin:8px 0}.scene-refs small{color:#687961;margin-left:.8em}.scene-refs a:hover{text-decoration:underline}
+
+/* 器物索引沿用现场考察卡片；实物图保留完整轮廓。 */
+html{scroll-padding-top:var(--jump-inset,90px)}
+#main [id]{scroll-margin-top:0}
+.fieldwork-chapter .scene-section .gallery-heading{margin-top:0;padding-top:0;border-top:0}
+#field-objects .artifact-group-title{font-size:calc(var(--story-body) + 5px);line-height:1.55;margin:32px 0 12px;color:#47583d}
+#field-objects .scene-cards .object-card>img,#field-objects .park-figure img{object-fit:contain;background:#f5f3ed}
+#field-objects .park-figure figcaption a:hover{text-decoration:underline}
+#field-objects .park-copy>.text-link{display:inline-flex;margin-top:16px}
+#field-objects .scene-refs{margin-top:26px}
+@media(min-width:701px){.fieldwork-chapter .fieldwork-index{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.fieldwork-chapter .fieldwork-index{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.fieldwork-chapter .fieldwork-index a{gap:5px}}
