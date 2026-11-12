@@ -42,7 +42,7 @@
   $$('[data-close]').forEach(button => button.addEventListener('click', () => document.getElementById(button.dataset.close).close()));
   $$('dialog').forEach(dialog => { dialog.addEventListener('click', event => { if(event.target === dialog) { const rect = dialog.getBoundingClientRect(); if(event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } }); dialog.addEventListener('close', () => document.body.style.overflow = ''); });
   const objectCards = {
-"park-wharf": {"title": "河姆渡码头", "summary": "从田螺山出土的木桨、横木与小桩出发，追问河姆渡人怎样靠岸。文中对照古埃及红海港口，配有遗迹关系图、栈台构造图，以及可随滚动逐步搭建的水岸场景。", "target": "park-wharf"}, "park-excavation": {"title": "考古发掘展示区", "summary": "从空中辨认成排的木桩与横木，看看考古人员怎样从残存的构件读出一处聚落。", "target": "park-excavation"}, "park-rice": {"title": "稻作与种植展示", "summary": "从骨耜翻土、落种护苗，到收穗、舂谷与陶釜煮食，跟随一季农事，比较河姆渡稻米与古埃及麦作饮食。文末可滚动观看六道工序。", "target": "park-rice"}, "park-houses": {"title": "干栏式房屋", "summary": "地板下的稻壳、成排的木桩和梁端的榫头，留下了河姆渡人在湿地建屋的线索。文章从今日馆舍的航拍出发，对照房屋分解图，说明桩、梁和地板如何承重，再与古埃及工人村的泥砖住宅比较。文末可随滚动逐步搭起一座长屋。", "target": "park-houses"},
+"park-wharf": {"title": "河姆渡码头", "summary": "从宁绍平原的水网到田螺山的木桨与舟模，循着远古渡口的线索，读懂河姆渡人的水上往来。配有遗迹关系图、栈台构造图，以及可随滚动逐步搭建的水岸场景。", "target": "park-wharf"}, "park-excavation": {"title": "考古发掘展示区", "summary": "从空中辨认成排的木桩与横木，看看考古人员怎样从残存的构件读出一处聚落。", "target": "park-excavation"}, "park-rice": {"title": "稻作与种植展示", "summary": "从骨耜翻土、落种护苗，到收穗、舂谷与陶釜煮食，跟随一季农事，比较河姆渡稻米与古埃及麦作饮食。文末可滚动观看六道工序。", "target": "park-rice"}, "park-houses": {"title": "干栏式房屋", "summary": "地板下的稻壳、成排的木桩和梁端的榫头，留下了河姆渡人在湿地建屋的线索。文章从今日馆舍的航拍出发，对照房屋分解图，说明桩、梁和地板如何承重，再与古埃及工人村的泥砖住宅比较。文末可随滚动逐步搭起一座长屋。", "target": "park-houses"},
 
   "bone": {
     "title": "骨耜",
