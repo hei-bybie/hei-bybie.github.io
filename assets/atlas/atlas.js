@@ -41,6 +41,7 @@
     return article;
   });
   info.after(flow);
+  window.HemuduReferences?.linkCitations(flow);
 
   // Both texts share one column. Their measured heights let the layout open
   // gradually even when the final entry wraps into many lines on a phone.
@@ -55,6 +56,7 @@
     layer.querySelector('.atlas-name').textContent = stop.name;
     layer.querySelector('.atlas-place').textContent = stop.location + ' · ' + stop.landmark;
     layer.querySelector('.atlas-note').textContent = stop.note;
+    window.HemuduReferences?.linkCitations(layer);
   }
   fill(ending, original);
   const note = ending.querySelector('.atlas-note');
@@ -70,6 +72,7 @@
     note.append(element);
   });
   info.append(earlier, ending);
+  window.HemuduReferences?.linkCitations(ending);
   let selected = -1, pending = false;
 
   function select(index) {

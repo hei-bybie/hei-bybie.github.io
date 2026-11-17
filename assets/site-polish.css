@@ -1,0 +1,83 @@
+/* Shared reading rhythm and compact, section-based bibliography. */
+:root{--story-caption:12px;--reading-gap:clamp(22px,3vw,40px)}
+html{scroll-padding-top:calc(var(--jump-inset,96px) + 20px)}
+body #main :is(.park-copy>p,.artifact-essay-body>p,.essay-body>p){text-wrap:pretty;overflow-wrap:break-word;letter-spacing:.02em;margin-bottom:1.4em}
+body #main :is(.park-copy h4,.artifact-essay-subtitle){margin-bottom:1em;letter-spacing:0}
+body #main :is(.park-essay-heading,.artifact-reading-intro,.gallery-heading){gap:var(--reading-gap)}
+.park-essay-layout,.house-end{column-gap:var(--reading-gap);align-items:start}
+body #main :is(.park-figure,.park-supplement,.house-drawing) figcaption{margin-top:12px;color:#62725c;line-height:1.8}
+body #main :is(.object-card>p,.objects-intro,.artifact-essay-body>p,.park-copy>p){color:#52634b}
+body #main .scene-cards .object-card{display:flex;flex-direction:column}
+body #main .scene-cards .object-card>img{flex-shrink:0}
+.scene-refs{margin-top:24px;margin-bottom:26px}
+.scene-refs summary{padding-block:7px}
+.article-nav{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;border-top:1px solid var(--line);padding-top:14px;margin-top:26px}
+.article-nav a{font-size:13px;line-height:1.8;padding-block:8px;color:#52634e}
+body :is(#main,dialog) a.citation-link{display:inline;vertical-align:super;font-size:.75em;line-height:0;white-space:nowrap;margin-inline:2px;color:#846234;text-decoration:none;font-weight:500;position:relative}
+a.citation-link:before{content:"";position:absolute;inset:-7px -2px}
+body :is(#main,dialog) a.citation-link:hover{text-decoration:underline;text-underline-offset:3px}
+body :is(#main,dialog) :is(.scene-refs,.ref-detail) a.citation-link{vertical-align:baseline;font-size:inherit;line-height:inherit}
+body #main .research-section{padding-block:clamp(56px,8vw,100px)}
+.research-section .section-heading{margin-bottom:24px}
+.research-section .research-intro{margin-bottom:24px;max-width:48em}
+.ref-tools{border-block:1px solid var(--line);margin-bottom:20px;padding:12px 0}
+.ref-tools>summary{cursor:pointer;font-size:13px;color:#52634e;padding:6px 0}
+.research-toolbar{margin:18px 0 8px;gap:16px;flex-wrap:wrap}
+.research-toolbar .filters{flex-wrap:wrap;gap:8px}
+.research-toolbar .search{width:min(100%,320px);min-width:0}
+.research-toolbar input{width:100%;min-width:0;font-size:16px}
+.ref-result-count{font-size:12px;color:#687661;margin-bottom:14px}
+#references{display:block;border-top:1px solid var(--line)}
+.ref-group{border-bottom:1px solid var(--line)}
+.ref-group>summary{display:flex;align-items:center;gap:14px;cursor:pointer;list-style:none;padding:23px 0;font-size:18px;color:#3f523b;font-weight:550}
+.ref-group>summary::-webkit-details-marker,.ref-entry>summary::-webkit-details-marker{display:none}
+.ref-group>summary:after{content:'＋';font-size:20px;font-weight:400;width:24px;text-align:center}
+.ref-group[open]>summary:after{content:'−'}
+.ref-group-count{margin-left:auto;font-size:12px;color:#788270;font-weight:400;white-space:nowrap}
+.ref-group-body{padding-bottom:12px}
+#references .ref-item{display:block;padding:0;border:0;border-top:1px solid #dfe2d7;background:transparent;outline:none;transition:background var(--motion-time) var(--motion-curve)}
+#references .ref-item.is-citation-target{background:#e9eddf;border-radius:8px;box-shadow:inset 3px 0 #7c8b64}
+.ref-entry>summary{list-style:none;display:grid;grid-template-columns:34px minmax(0,1fr) 20px;gap:14px;align-items:start;padding:19px 14px;cursor:pointer}
+.ref-entry>summary:after{content:'＋';font-size:16px;color:#788270}
+.ref-entry[open]>summary:after{content:'−'}
+.ref-heading{min-width:0}
+.ref-title{display:block;font-size:var(--story-body);line-height:1.65;color:#384b33;overflow-wrap:anywhere;font-weight:500}
+#references .ref-number{font-size:12px;line-height:2.1;color:#788270}
+#references .ref-meta{display:block;font-size:12px;line-height:1.8;color:#788270;margin:6px 0 0}
+#references .ref-detail{margin:0;padding:0 48px 22px 62px;border:0}
+#references .ref-detail>.citation{font-size:13px;line-height:1.85;color:#5d6b53;overflow-wrap:anywhere}
+.ref-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px 22px;margin-top:16px}
+.ref-actions :is(a,button){display:inline-flex;align-items:center;min-height:36px;padding:4px 0;font-size:12px;line-height:1.6;background:none;color:#52634e;text-decoration:underline;text-decoration-color:#c0c8b8;text-underline-offset:5px}
+.ref-actions .ref-return{color:#846234;font-weight:600}
+body #main .ref-group .ref-heading,.ref-group summary{opacity:1;transform:none}
+@media(max-width:700px){
+ :root{--story-caption:11px}
+ .ref-group>summary{font-size:16px;padding-block:20px;gap:8px}
+ .ref-entry>summary{grid-template-columns:26px minmax(0,1fr) 16px;gap:8px;padding:16px 8px}
+ #references .ref-detail{padding:0 12px 20px 42px}
+ .research-section .section-heading{align-items:start;flex-direction:column;gap:18px}
+ .research-toolbar{display:flex;flex-direction:column;align-items:stretch}
+ .research-toolbar .search{width:100%}
+ .ref-actions{gap:8px 16px}
+ .article-nav a{font-size:12px}
+ .fieldwork-chapter .scene-cards .object-card h3{font-size:17px!important;line-height:1.55}
+ .fieldwork-chapter .scene-cards .object-card>p{font-size:13px!important;line-height:1.9}
+}
+@media print{.ref-tools,.article-nav,.ref-actions{display:none!important}.ref-group-body,.ref-entry>.ref-detail{display:block!important}.ref-group>summary:after,.ref-entry>summary:after{display:none}}
+
+/* Closing page: keep the copy in the illustration's open central area. */
+@media screen{
+ .outro{
+  background-color:#f5f4ef;
+  background-image:url('images/museum-exhibition-comic.png');
+  background-repeat:no-repeat;
+  background-position:center bottom;
+  background-size:100% auto;
+  padding-top:clamp(48px,4vw,80px);
+  padding-bottom:clamp(200px,18vw,350px);
+ }
+ .outro>.wrap{position:relative;z-index:1}
+}
+@media screen and (max-width:700px){
+ .outro{padding-top:56px;padding-bottom:calc(39.2vw + 32px)}
+}

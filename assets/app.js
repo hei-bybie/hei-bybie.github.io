@@ -27,13 +27,13 @@
     catch { const input = document.createElement('textarea'); input.value = text; input.style.cssText = 'position:fixed;top:0;left:0;opacity:0'; document.body.append(input); input.select(); let copied = false; try { copied = document.execCommand('copy'); } catch {} input.remove(); if(copied) toast('引文已复制'); else { download('参考引文.txt', text); toast('当前浏览器无法复制，已下载引文'); } }
   }
   const chapters = [
-    {title:'湿地里的一粒稻',image:'assets/images/image-afeb6eba2db3.png',text:'虚构的少年蹲在湿地边，观察一穗稻。\n这幅画为文章提出第一个问题：人在怎样的环境中开始并持续经营稻作？',evidence:'环境与栽培的联系参考文献 [4]、[6]。人物、服饰、具体动作与地貌为AI辅助生成的叙事想象，非考古复原。'},
-    {title:'一顿饭的多种来源',image:'assets/images/image-8d0cbd1a89bf.png',text:'稻穗、果实和鱼被放在一起。\n这一场景帮助读者同时关注栽培与采集渔猎，不表示某次真实聚餐，也不表示各种食物的比例。',evidence:'食物来源与研究分歧参考文献 [2]、[5]、[6]。同位素与遗存证据需要结合研究对象、取样及方法解释。'},
-    {title:'田地与居所之间',image:'assets/images/image-1604ffe593b4.png',text:'少年站在水边的架高木屋附近。\n画面将食物、劳动与居所联系起来，对应文章关于农业文化生态体系的讨论。',evidence:'木构遗迹及聚落联系参考文献 [4]、[6]。房屋外观、规模、人物关系与服饰为概念场景，不能据此确认史前家庭组织。'}
+    {title:'湿地里的一粒稻',image:'assets/images/image-afeb6eba2db3.png',text:'少年蹲在湿地边，观察一穗稻。\n这幅画为文章提出第一个问题：人在怎样的环境中开始并持续经营稻作？',evidence:'环境与栽培的联系参考文献 [4]、[6]。'},
+    {title:'一顿饭的多种来源',image:'assets/images/image-8d0cbd1a89bf.png',text:'稻穗、果实和鱼被放在一起。\n这一场景帮助读者同时关注栽培与采集渔猎。',evidence:'食物来源与研究分歧参考文献 [2]、[5]、[6]。'},
+    {title:'田地与居所之间',image:'assets/images/image-1604ffe593b4.png',text:'少年站在水边的架高木屋附近。\n画面将食物、劳动与居所联系起来，对应文章关于农业文化生态体系的讨论。',evidence:'木构遗迹及聚落联系参考文献 [4]、[6]。'}
   ];
   let chapterIndex = 0;
   const reader = $('#comic-dialog');
-  function renderChapter() { const c = chapters[chapterIndex]; $('#comic-chapter').textContent = 'ILLUSTRATION ' + String(chapterIndex+1).padStart(2,'0'); $('#comic-title').textContent = titleText(c.title); $('#comic-text').textContent = c.text; $('#comic-evidence').textContent = c.evidence; $('#comic-image').src = window.HEMUDU_INLINE_STORIES?.[chapterIndex+1] || c.image; $('#comic-image').alt = c.title + '：Q版日漫叙事插图'; $('#comic-count').textContent = `${String(chapterIndex+1).padStart(2,'0')} / ${String(chapters.length).padStart(2,'0')}`; $('#comic-prev').disabled = chapterIndex === 0; $('#comic-next').disabled = chapterIndex === chapters.length-1; }
+  function renderChapter() { const c = chapters[chapterIndex]; $('#comic-chapter').textContent = 'ILLUSTRATION ' + String(chapterIndex+1).padStart(2,'0'); $('#comic-title').textContent = titleText(c.title); $('#comic-text').textContent = c.text; $('#comic-evidence').textContent = c.evidence; $('#comic-image').src = window.HEMUDU_INLINE_STORIES?.[chapterIndex+1] || c.image; $('#comic-image').alt = c.title + '：Q版日漫叙事插图'; $('#comic-count').textContent = `${String(chapterIndex+1).padStart(2,'0')} / ${String(chapters.length).padStart(2,'0')}`; $('#comic-prev').disabled = chapterIndex === 0; $('#comic-next').disabled = chapterIndex === chapters.length-1; linkCitations(reader); }
   $('#read-comic').addEventListener('click', () => { renderChapter(); reader.showModal(); });
   $$('[data-illustration]').forEach(button => button.addEventListener('click', () => { chapterIndex=Number(button.dataset.illustration);renderChapter();reader.showModal(); }));
   $('#comic-prev').addEventListener('click', () => { if(chapterIndex > 0) { chapterIndex--; renderChapter(); } });
@@ -91,9 +91,9 @@
     $('#object-read').setAttribute('href','#'+(card.target || 'artifact-'+key));
     $('#object-ref').href = card.reference ? '#' + card.reference : '#research';
     $('#object-ref').textContent = card.reference ? '查看本件资料 ↗' : '参考资料 ↗';
-    $('#object-dialog').showModal();
+    $('#object-dialog').dataset.originObject=key; $('#object-dialog').showModal();
   }));
-  $('#object-ref').addEventListener('click', () => $('#object-dialog').close());
+  
   $('#object-read').addEventListener('click', () => {
     const id=$('#object-read').getAttribute('href').slice(1);
     $('#object-dialog').close();
@@ -101,19 +101,60 @@
   });
   const notes = '# 河姆渡文化实践 · 实地考察记录表\n\n考察者：\n日期与时间：\n地点：\n天气：\n拍摄与访谈许可情况：\n\n## 一、文物观察卡（每件复制一份）\n名称：\n年代 / 文化层：\n出土地点：\n现藏单位：\n原件 / 复制品 / 模型：\n材质、尺寸与形态：\n展签原文或摘要（区分记录）：\n展签照片编号：\n细节照片编号：\n速写：\n已知用途及依据：\n尚需核实的问题：\n拟用于漫画的篇章 / 画面：\n\n## 二、复原场景记录\n场景名称：\n有直接出土依据的部分：\n解释性复原的部分：\n依据来源与照片编号：\n\n## 三、访谈\n是否征得同意：\n受访者身份（可匿名）：\n问题：\n回答摘要（与逐字引语区分）：\n\n## 四、影像记录\n文件名：\n拍摄地点和日期：\n画面说明：\n拍摄者与使用范围：\n\n## 五、试读反馈（考察后）\n样本人数：\n记住了什么：\n难理解之处：\n有无混淆虚构与事实：\n计划修改：\n\n## 六、考察后复核\n新增资料：\n需要修改的画面：\n无法确定的细节：\n';
   $$('.download-notes').forEach(button => button.addEventListener('click', () => download('河姆渡实地考察记录表.md', notes, 'text/markdown;charset=utf-8')));
+  const referenceGroups = window.HEMUDU_REFERENCE_GROUPS;
   let currentFilter = 'all';
+  let citationOrigin = null;
+  let citationSerial = 0;
+  function linkCitations(root = document.body) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (node.parentElement.closest('a,script,style,textarea,input,button,svg,#references,template')) return NodeFilter.FILTER_REJECT;
+        return /\[(\d{1,2})\]/.test(node.textContent) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    const nodes = []; while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+      const fragment = document.createDocumentFragment(); let end = 0;
+      for (const match of node.textContent.matchAll(/\[(\d{1,2})\]/g)) {
+        if (!data.references.some(ref => ref.id === 'r' + match[1])) continue;
+        fragment.append(node.textContent.slice(end, match.index));
+        const link = document.createElement('a'); link.href = '#r' + match[1];
+        link.className = 'citation-link'; link.textContent = match[0]; fragment.append(link);
+        end = match.index + match[0].length;
+      }
+      fragment.append(node.textContent.slice(end)); node.replaceWith(fragment);
+    });
+    $$('a[href^="#r"]', root).forEach(link => {
+      const ref = data.references.find(ref => '#' + ref.id === link.getAttribute('href'));
+      if (!ref) return;
+      if (/^\[\d+\]$/.test(link.textContent.trim())) link.classList.add('citation-link');
+      link.title = '参考文献：' + titleText(ref.title);
+      link.setAttribute('aria-label', link.textContent.trim() + '，参考文献：' + titleText(ref.title));
+    });
+  }
   function savePaper(ref) {
     const a=document.createElement('a');a.href=ref.local;a.download=ref.title+'.pdf';
     document.body.append(a);a.click();a.remove();
   }
   $$('[data-filter]').forEach(button => { const count=$('span',button);if(count) count.textContent=String(data.references.filter(ref=>button.dataset.filter==='all'||ref.kind===button.dataset.filter).length); });
+  function referenceMarkup(ref) {
+    return `<article class="ref-item" id="${escape(ref.id)}" tabindex="-1"><details class="ref-entry"><summary><span class="ref-number">${escape(ref.id.slice(1).padStart(2,'0'))}</span><span class="ref-heading"><span class="ref-title">${escape(titleText(ref.title))}</span><span class="ref-meta">${escape(ref.source)} · ${escape(ref.year)}</span></span></summary><div class="ref-detail"><p class="citation">${escape(ref.citation)}</p><div class="ref-actions">${ref.url ? `<a href="${escape(ref.url)}" target="_blank" rel="noopener noreferrer">打开论文 / 资料 ↗</a>` : ''}${ref.local ? `<a href="${escape(ref.local)}" target="_blank" rel="noopener noreferrer">阅读 PDF ↗</a><button data-paper="${escape(ref.id)}">下载 PDF ↓</button>` : ''}${ref.verify ? `<a href="${escape(ref.verify)}" target="_blank" rel="noopener noreferrer">补充来源 ↗</a>` : ''}<button data-copy="${escape(ref.id)}">复制引文</button>${(ref.readingTargets||[]).map(target=>`<a href="#${escape(target.id)}">${escape(target.label)} ↑</a>`).join('')}${citationOrigin?.ref === ref.id ? `<a class="ref-return" href="#${escape(citationOrigin.id)}">回到引用处 ↑</a>` : ''}</div></div></details></article>`;
+  }
   function renderReferences() {
+    const opened = new Set($$('.ref-group[open]').map(group => group.dataset.refGroup));
+    const entries = new Set($$('.ref-entry[open]').map(entry => entry.parentElement.id));
     const term = $('#ref-search').value.trim().toLocaleLowerCase();
     const references = data.references.filter(ref => (currentFilter === 'all' || currentFilter === ref.kind) && [ref.title, ref.authors, ref.year, ref.source].join(' ').toLocaleLowerCase().includes(term));
-    $('#references').innerHTML = references.map(ref => `<article class="ref-item" id="${escape(ref.id)}" tabindex="-1"><span class="ref-number">${String(data.references.indexOf(ref)+1).padStart(2,'0')}</span><div><p class="ref-meta">${escape(ref.source)}</p><h3>${escape(titleText(ref.title))}</h3><p class="ref-authors">${escape(ref.authors)}</p><details><summary>阅读说明与引用</summary><div class="ref-detail"><p>${escape(ref.note)}</p><p class="ref-access">${escape(ref.access)}</p><p class="citation">${escape(ref.citation)}</p><div class="ref-actions">${ref.url ? `<a href="${escape(ref.url)}" target="_blank" rel="noopener noreferrer">${ref.id === 'r1' ? '前往知网条目' : '打开来源'} ↗</a>` : ''}${ref.local ? `<button class="local-paper" data-paper="${escape(ref.id)}">下载论文 PDF ↓</button>` : ''}${ref.verify ? `<a href="${escape(ref.verify)}" target="_blank" rel="noopener noreferrer">${ref.id === 'r1' ? '书目交叉核验' : '查看公开摘要'} ↗</a>` : ''}<button data-copy="${escape(ref.id)}">复制引文 ＋</button>${(ref.readingTargets||[]).map(target=>`<a href="#${escape(target.id)}">${escape(target.label)} ↑</a>`).join('')}</div></div></details></div><span class="ref-year">${escape(ref.year)}</span></article>`).join('');
+    $('#references').innerHTML = referenceGroups.map((group,i) => {
+      const refs = group.ids.map(id => references.find(ref => ref.id === id)).filter(Boolean);
+      if (!refs.length) return '';
+      return `<details class="ref-group" data-ref-group="${i}"${opened.has(String(i)) || term || currentFilter !== 'all' ? ' open' : ''}><summary><span>${escape(group.label)}</span><span class="ref-group-count">${refs.length} 篇</span></summary><div class="ref-group-body">${refs.map(referenceMarkup).join('')}</div></details>`;
+    }).join('');
+    entries.forEach(id => { const entry = document.querySelector('#'+id+' > details'); if(entry) entry.open = true; });
     $('#no-results').hidden = references.length !== 0;
+    $('#ref-result-count').textContent = references.length === data.references.length ? `共 ${references.length} 篇 · 点击板块展开` : `找到 ${references.length} 篇文献`;
     $$('[data-copy]').forEach(button => button.addEventListener('click', () => copyCitation(data.references.find(ref => ref.id === button.dataset.copy).citation)));
-    $$('[data-paper]').forEach(button=>button.addEventListener('click',()=>savePaper(data.references.find(ref=>ref.id===button.dataset.paper))));
+    $$('[data-paper]').forEach(button => button.addEventListener('click', () => savePaper(data.references.find(ref => ref.id === button.dataset.paper))));
   }
   $$('[data-filter]').forEach(button => button.addEventListener('click', () => { currentFilter = button.dataset.filter; $$('[data-filter]').forEach(b => { b.classList.toggle('active', b === button); b.setAttribute('aria-pressed',String(b === button)); }); renderReferences(); }));
   $('#ref-search').addEventListener('input',renderReferences); renderReferences();
@@ -123,32 +164,52 @@
       $$('.is-citation-target').forEach(item => item.classList.remove('is-citation-target'));
       return;
     }
-    currentFilter = 'all';
-    $('#ref-search').value = '';
+    currentFilter = 'all'; $('#ref-search').value = '';
     $$('[data-filter]').forEach(button => {
       const active = button.dataset.filter === 'all';
-      button.classList.toggle('active', active);
-      button.setAttribute('aria-pressed', String(active));
+      button.classList.toggle('active', active); button.setAttribute('aria-pressed', String(active));
     });
     renderReferences();
     const article = document.getElementById(id);
+    article.closest('.ref-group').open = true;
     $('details', article).open = true;
-    article.classList.add('is-citation-target');
-    article.focus({preventScroll: true});
-    requestAnimationFrame(() => article.scrollIntoView({block: 'start'}));
+    article.classList.add('is-citation-target'); article.focus({preventScroll:true});
+    // Wait for the map and building modules to finish their initial layout.
+    // Citation jumps can span the whole page, so avoid a long smooth traversal.
+    requestAnimationFrame(() => requestAnimationFrame(() => article.scrollIntoView({block:'start', behavior:'instant'})));
   }
   document.addEventListener('click', event => {
-    const link = event.target.closest('a[href^="#r"]');
+    const link = event.target.closest('a[href^="#"]');
     if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const fragment = link.getAttribute('href');
+    if (link.classList.contains('ref-return')) {
+      const origin = document.getElementById(fragment.slice(1));
+      if (origin) {
+        event.preventDefault(); location.hash = fragment;
+        origin.focus({preventScroll:true});
+        requestAnimationFrame(() => origin.scrollIntoView({block:'start',behavior:'instant'}));
+      }
+      return;
+    }
     if (!data.references.some(ref => '#' + ref.id === fragment)) return;
     event.preventDefault();
-    if (location.hash === fragment) revealReference();
-    else location.hash = fragment;
+    let origin = link;
+    const dialog = link.closest('dialog');
+    if(dialog) {
+      origin = document.querySelector(`[data-object="${dialog.dataset.originObject || ''}"]`) || document.querySelector(`[data-illustration="${chapterIndex}"]`) || $('#read-comic');
+      dialog.close();
+    }
+    if (!origin.id) origin.id = 'cite-origin-' + (++citationSerial);
+    citationOrigin = {id: origin.id, ref: fragment.slice(1)};
+    if (location.hash === fragment) revealReference(); else location.hash = fragment;
   });
   window.addEventListener('hashchange', revealReference);
+  window.addEventListener('load', () => { if (/^#r\d+$/.test(location.hash)) revealReference(); }, {once:true});
+  window.HemuduReferences = {linkCitations};
+  linkCitations();
   if (location.hash) revealReference();
-  $('#export-refs').addEventListener('click', () => download('河姆渡参考文献.txt', '河姆渡文化实践专栏 · 参考文献\n\n' + data.references.map((ref,i) => `[${i+1}] ${ref.citation}\n来源：${ref.url||ref.local||'课程提供资料'}\n阅读状态：${ref.access}\n说明：${ref.note}`).join('\n\n')));
+  $('#export-refs').addEventListener('click', () => download('河姆渡参考文献.txt', '河姆渡文化实践专栏 · 参考文献\n\n' + referenceGroups.map(group => group.label+'\n'+group.ids.map(id => {const ref=data.references.find(ref=>ref.id===id);return `[${id.slice(1)}] ${ref.citation}\n来源：${ref.url||ref.local||'课程提供资料'}`;}).join('\n\n')).join('\n\n')));
+
   let videoUrl = null;
   function showVideo(src, label, poster='') { const video=$('#field-video'); video.src=src; if(poster) video.poster=poster; else video.removeAttribute('poster'); video.hidden=false; $('#reset-video').hidden=false; $('#film-stage').classList.add('has-video'); $('#media-hint').textContent=label; }
   $('#video-title').textContent = titleText(data.video.title);
